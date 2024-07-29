@@ -1,0 +1,22 @@
+{
+  "name": "altametrics-challange",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "web-app:dev": "pnpm --filter @altametrics/web-app run dev",
+    "web-app:build": "pnpm --filter @altametrics/web-app run build",
+    "be-app:dev": "pnpm --filter @altametrics/be-app run start:dev "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

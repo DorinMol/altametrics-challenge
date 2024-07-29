@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  web-app:
+    build:
+      context: ./packages/web-app
+    env_file: ./packages/web-app/.env
+    ports:
+      - '3000:3000'
+    depends_on:
+      - be-app
+
+  be-app:
+    build:
+      context: ./packages/be-app
+    env_file: ./packages/be-app/.env
+    ports:
+      - '4000:4000'
+    depends_on:
+      - db
+
+  db:
+    build:
+      context: ./packages/shared/db
+    env_file: ./packages/shared/db/.env
+    depends_on:
+      - postgres
+    volumes:
+      - db_data:/app/prisma
+    command: ['pnpm', 'run', 'migrate:dev']
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: altametrics
+      POSTGRES_PASSWORD: altametrics
+      POSTGRES_DB: altametrics
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
+  postgres_data:
