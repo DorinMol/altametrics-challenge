@@ -13,8 +13,8 @@ Monorepo which includes the following projects:
 3. Create a local database using docker ( `docker run --name altametrics -e POSTGRES_USER=altametrics -e POSTGRES_PASSWORD=altametrics -p 5432:5432 -v altametrics:/var/lib/postgresql/data -d postgres` )
 4. Inside each of the packages, `rename .env.example to .env`
 5. `pnpm -F @altametrics/db run seed` ( to seed the db )
-6. `pnpm web-app:dev` ( to run the web application )
-7. `pnpm be-app:dev` ( to run the be application )
+6. `pnpm be-app:dev` ( to run the be application )
+7. `pnpm web-app:dev` ( to run the web application )
 8. On login page use the following credentials:
    - username: `altametrics@altametrics.com`
    - password: `altametrics`
